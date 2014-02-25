@@ -1,0 +1,10 @@
+/****
+ * State classes
+ */
+.show-mobile {
+  display: none;
+
+  @include media(max-width $bp-mobile) {
+    display: block;
+  }
+}

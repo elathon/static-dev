@@ -1,0 +1,352 @@
+/****
+ * Base type
+ */
+
+html {
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: sans-serif;
+}
+
+body {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+  color: $base-font-color;
+}
+
+/****
+ * Links
+ */
+a {
+  color: $base-font-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+/****
+ * Small text
+ */
+
+small {
+  font-size: 65%;
+}
+
+
+/****
+ * Headings
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-headings;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-top: 0;
+  text-rendering: optimizeLegibility; /*  voodoo to enable ligatures and kerning | https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
+  color: darken($base-font-color, 5%);
+}
+
+h1,
+.alpha {
+  font-size: round($base-font-size * 3.3333);
+  font-size: 3.33333rem;
+  margin-bottom: 0.495em;
+}
+
+h2,
+.beta {
+  font-size: round($base-font-size * 2.6667);
+  font-size: 2.66rem;
+  margin-bottom: 0.61875em;
+}
+
+h3,
+.gamma {
+  font-size: round($base-font-size * 2);
+  font-size: 2rem;
+  margin-bottom: 0.825em;
+}
+
+h4,
+.delta {
+  font-size: round($base-font-size * 1.3333);
+  font-size: 1.33rem;
+  margin-bottom: 1.2375em;
+}
+
+h5,
+.epsilon {
+  font-size: round($base-font-size * 1.1667);
+  font-size: 1.1667rem;
+  margin-bottom: 1.415em;
+}
+
+h6,
+.zeta {
+  font-size: $base-font-size;
+  font-size: 1rem;
+  margin-bottom: 1.65em;
+}
+
+
+/****
+ * Paragraphs and indentation
+ */
+
+p {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin: auto auto 1.5em;
+}
+
+
+/****
+ * Hyphens
+ */
+
+abbr,
+acronym,
+blockquote,
+code,
+dir,
+kbd,
+listing,
+plaintext,
+q,
+samp,
+tt,
+var,
+xmp {
+  /* Accepted values: [ none | manual | auto ] */ /* http://meyerweb.com/eric/thoughts/2012/12/17/where-to-avoid-css-hyphenation */
+  -webkit-hyphens: none; /* Safari 5.1 thru 6, iOS 4.2 thru 6 */
+  -moz-hyphens: none; /* Firefox 16 thru 20 */
+  -ms-hyphens: none; /* IE10 */
+  -o-hyphens: none; /* PRESTO...haha LOL */
+  hyphens: none;	 /* W3C standard */
+}
+
+
+/****
+ * Code blocks
+ */
+
+pre code {
+  word-wrap: normal;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap; /* http://css-tricks.com/almanac/properties/w/whitespace */
+}
+
+pre {
+  white-space: pre;
+}
+
+code {
+  white-space: pre;
+  font-family: monospace;
+}
+
+
+/****
+ * Abbreviations
+ */
+
+abbr {
+  font-variant: small-caps; /* https://developer.mozilla.org/en-US/docs/CSS/font-variant */
+  font-weight: 600;
+  text-transform: lowercase;
+  color: #808080;
+}
+
+abbr[title]:hover {
+  cursor: help; /* cursor changed to a question mark when it has a title */
+}
+
+
+/****
+ * Definition lists
+ */
+
+/**
+ * Lining Definition Style Markup
+ *
+	<dl class="lining">
+		<dt><b></b></dt>
+		<dd></dd>
+	</dl>
+ *
+ * Extend this object into your markup.
+ *
+ */
+.lining dt,
+.lining dd {
+  display: inline;
+  margin: 0;
+}
+.lining dt + dt:before,
+.lining dd + dt:before {
+  content: "\A";
+  white-space: pre;
+}
+.lining dd + dd:before {
+  content: ", ";
+}
+.lining dd:before {
+  content: ": ";
+  margin-left: -0.2em;
+}
+
+
+/**
+ * Dictionary Definition Style Markup
+ *
+	<dl class="dictionary-style">
+		<dt><b></b></dt>
+			<dd></dd>
+	</dl>
+ *
+ * Extend this object into your markup.
+ *
+ */
+.dictionary-style dt {
+  display: inline;
+  counter-reset: definitions;
+}
+.dictionary-style dt + dt:before {
+  content: ", ";
+  margin-left: -0.2em;
+}
+.dictionary-style dd {
+  display: block;
+  counter-increment: definitions;
+}
+.dictionary-style dd:before {
+  content: counter(definitions, decimal) ". ";
+}
+
+
+/****
+ * Blockquotes
+ */
+
+/**
+ * Blockquote Markup
+ *
+	<figure>
+		<blockquote class="blockquote" cite="">
+			<p></p>
+		</blockquote>
+		<figcaption>
+			<cite>
+				<small><a href=""></a></small>
+			</cite>
+		</figcaption>
+	</figure>
+ *
+ * Extend this object into your markup.
+ *
+ */
+
+.blockquote p:last-of-type {
+  margin-bottom: -0.825em;
+}
+
+.blockquote + figcaption {
+  display: block;
+  font-size: inherit;
+  text-align: right;
+}
+
+.blockquote + figcaption:before {
+  content: "-"; /* "-" is your citation flourish */
+}
+
+
+/****
+ * Pull quotes
+ */
+
+/**
+ * Pull Quotes Markup
+ *
+	<aside class="pull-quote">
+		<blockquote>
+			<p></p>
+		</blockquote>
+	</aside>
+ *
+ * Extend this object into your custom stylesheet.
+ *
+ */
+.pull-quote {
+  position: relative;
+  padding: 1em;
+}
+.pull-quote:before,
+.pull-quote:after {
+  height: 1em;
+  opacity: 0.15;
+  position: absolute;
+  font-size: 4em;
+  color: #dc976e;
+}
+.pull-quote:before {
+  content: '“';
+  top: 0;
+  left: 0;
+}
+.pull-quote:after {
+  content: '”';
+  bottom: 0;
+  right: 0;
+}
+
+
+/****
+ * Figures
+ */
+
+/**
+ * Figures Markup
+ *
+	<figure>
+		<figcaption>
+			<strong>Fig. 4.2 | </strong>Type Anatomy, an excerpt from Mark Boulton's book<cite title="http://designingfortheweb.co.uk/book/part3/part3_chapter11.php">"Designing for the Web"</cite>
+		</figcaption>
+	</figure>
+ *
+ * Extend this object into your markup.
+ *
+ */
+
+
+/****
+ * Footnotes
+ */
+
+/**
+ * Footnote Markup : Replace 'X' with your unique number for each footnote
+ *
+	<article>
+		<p><sup><a href="#fn-itemX" id="fn-returnX"></a></sup></p>
+		<footer>
+			<ol class="foot-notes">
+				<li id="fn-itemX"><a href="#fn-returnX">↩</a></li>
+			</ol>
+		</footer>
+	</article>
+ *
+ * Extend this object into your markup.
+ *
+ */

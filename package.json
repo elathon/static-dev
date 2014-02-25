@@ -1,0 +1,13 @@
+{
+  "name": "nodeDev",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-sass": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-connect": "~0.6.0",
+    "js-beautify": "~1.3.4",
+    "grunt-html-build": "~0.3.1",
+    "grunt-contrib-uglify": "~0.3.2"
+  }
+}

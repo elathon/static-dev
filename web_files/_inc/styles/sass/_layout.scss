@@ -1,0 +1,17 @@
+/****
+ * Core layout styles
+ */
+
+.wrapper {
+  max-width: $bp-desktop + ($grid-margin * 2);
+  margin: 0 auto;
+  padding: 0 $grid-margin;
+}
+
+
+// --- Main content area
+.main {
+  
+}
+
+// --- Grids

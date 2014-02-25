@@ -1,0 +1,18 @@
+.lt-ie9 {
+
+  * {
+    *behavior: url(/boxsizing.htc);
+  }
+
+  body {
+    width: $bp-desktop + ($grid-margin * 2);
+  }
+
+  .browsehappy {
+    display: block !important;
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.5em;
+  }
+}
